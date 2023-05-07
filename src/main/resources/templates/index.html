@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Inicio crud</title>
+</head>
+<body>
+	<h1>Inicio de CRUD Persona</h1>
+	<div th:if="${personas != null and !personas.empty}">
+		<table border="1">
+			<tr>
+				<th>nombre</th>
+				<th>apellido</th>
+				<th>email</th>
+				<th>telefono</th>
+			</tr>
+			<tr th:each="persona : ${personas}">
+				<td th:text="${persona.nombre}"></td>
+				<td th:text="${persona.apellido}"></td>
+				<td th:text="${persona.email}"></td>
+				<td th:text="${persona.telefono}"></td>
+
+			</tr>
+		</table>
+		<div th:if="${personas == null or personas.empty}">
+		La lista de personas esta vacia mi chavo
+		</div>
+	</div>
+</body>
+</html>
